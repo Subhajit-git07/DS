@@ -1,0 +1,50 @@
+##To find out if two strings are anagram or not.
+##Sort and compare method.
+def anagram1(s1,s2):
+    alist1 = list(s1)
+    alist2 = list(s2)
+    
+    alist1.sort()
+    alist2.sort()
+    
+    pos = 0
+    match = True
+    
+    if len(alist1) != len(alist2):
+        match = False
+    while pos<len(alist1) and match:
+        if alist1[pos] == alist2[pos]:
+            pos = pos + 1
+        else:
+            match = False
+    return match
+
+anagram1("eartt","heart")
+
+##Create counters for alphabat of strings and compare method.
+
+def anagram2(s1,s2):
+    c1 = [0]*26
+    c2 = [0]*26
+    
+    match = True
+    if len(s1) != len(s2):
+        match = False
+        
+    for i in range(len(s1)):
+        pos = ord(s1[i]) - ord("a")
+        c1[pos] = c1[pos] + 1
+    for i in range(len(s2)):
+        pos = ord(s2[i]) - ord("a")
+        c2[pos] = c2[pos] + 1
+        
+    j = 0
+    while j<26 and match:
+        if c1[j] == c2[j]:
+            j = j + 1
+        else:
+            match = False
+    return match
+
+anagram2("eartt","heart")
+        
