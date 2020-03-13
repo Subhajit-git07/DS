@@ -1,0 +1,9 @@
+##Find min value from a list.
+def find_min(alist):
+    minsofar = alist[0]
+    for i in alist:
+        if i<minsofar:
+            minsofar = i
+    return minsofar
+
+find_min([3,4,2,6,7])
