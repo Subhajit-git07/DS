@@ -36,3 +36,35 @@ def parchecker(symbolString):
     else:
         return False
 parchecker("(())")   
+
+#####Symbol checker##########
+
+def symbolChecker(symbolString):
+    s = stack()
+    match = True
+    for i in symbolString:
+        if i in "({[":
+            s.push(i)
+        else:
+            if s.is_empty():
+                match = False
+            else:
+                top = s.pop()
+                if not symbol_match(top,i):
+                    match = False
+    if match and s.is_empty():
+        return True
+    else:
+        return False
+    
+def symbol_match(open,close):
+    if open == "(" and close == ")":
+        return True
+    elif open == "{" and close == "}":
+        return True
+    elif open == "[" and close == "]":
+        return True
+    else:
+        return False
+    
+symbolChecker("([{}}}]")
