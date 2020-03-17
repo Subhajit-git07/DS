@@ -1,0 +1,13 @@
+def decimal_to_binary(num,base):
+    s = stack()
+    digits = "0123456789ABCDEFGH"
+    while num>0:
+        rem = num % base
+        s.push(rem)
+        num = num // base
+    binary = ""
+    while not s.is_empty():
+        binary = binary + digits[s.pop()]
+    return binary
+
+decimal_to_binary(232,8)   
