@@ -1,0 +1,35 @@
+class stack:
+    def __init__(self):
+        self.items = []
+        
+    def push(self,item):
+        self.items.append(item)
+        
+    def pop(self):
+        return self.items.pop()
+    
+    def is_empty(self):
+        return self.items == []
+    
+    def size(self):
+        return len(self.items)
+    
+    def peek(self):
+        return self.items[len(self.items)-1]
+    
+    def print_stack(self):
+        print(self.items)
+        
+def pelindrom(str):
+    s = stack()
+    for i in str:
+        s.push(i)
+    rev_str = ""
+    while not s.is_empty():
+        rev_str = rev_str + s.pop()
+    if rev_str == str:
+        return True
+    else:
+        return False
+        
+pelindrom("radar")
