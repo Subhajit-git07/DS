@@ -1,0 +1,11 @@
+def rev_number(number):
+    revNumber = 0
+    while number>0:
+        revNumber = (revNumber*10) + (number%10)
+        ##print(revNumber)
+        number = number // 10
+    return revNumber
+    
+    
+rev_number(123)
+    
